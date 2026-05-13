@@ -107,22 +107,22 @@
     }
 
     /* ── HERO ── */
-    #hero { display: flex; width: 100%; min-height: 100vh; overflow: hidden; }
-    .hero-left {
-      flex: 0 0 55%; display: flex; align-items: center;
-      background: var(--cream); padding: 100px 60px 80px;
+    #hero {
+      width: 100%; min-height: 100vh; position: relative;
+      display: flex; align-items: center;
+      background-image: url('https://images.unsplash.com/photo-1592415486689-125cbbfcdfbe?w=1600');
+      background-size: cover; background-position: center;
     }
-    .hero-right {
-      flex: 0 0 45%;
-      min-height: 100vh;
-      background-image: url('https://images.unsplash.com/photo-1592415486689-125cbbfcdfbe?w=900');
-      background-size: cover; background-position: center; position: relative;
-    }
-    .hero-right::after {
+    #hero::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to right, var(--cream) 0%, transparent 28%);
+      background: rgba(250,247,240,0.85);
     }
-    .hero-content { max-width: 520px; width: 100%; }
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 620px; width: 100%;
+      padding: 120px 40px 80px;
+      margin-left: max(40px, calc((100vw - 1200px) / 2));
+    }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--gold-dim); border: 1px solid rgba(232,184,75,0.35);
@@ -180,10 +180,7 @@
       animation: pulseGlow 2s ease-in-out infinite; flex-shrink: 0;
     }
     @media (max-width: 768px) {
-      #hero { flex-direction: column; }
-      .hero-right { flex: none; width: 100%; min-height: 52vw; order: -1; }
-      .hero-right::after { background: linear-gradient(to bottom, var(--cream) 0%, transparent 40%); }
-      .hero-left { flex: none; width: 100%; padding: 36px 24px 60px; }
+      .hero-content { padding: 100px 24px 60px; margin-left: 0; }
     }
 
     /* ── BADGES STRIP ── */
@@ -566,30 +563,27 @@
 
 <!-- ━━━ HERO ━━━ -->
 <section id="hero">
-  <div class="hero-left">
-    <div class="hero-content">
-      <div class="hero-badge">🥖 #3 Sandwich Spot in Leuven · Since 2008</div>
-      <h1 class="hero-title">
-        <span class="t-pain">Pain</span>
-        <span class="t-louvain">Louvain</span>
-      </h1>
-      <p class="hero-sub" data-lang="hero_sub">Originele broodjes, vers gebakken brood, midden in het studentenleven van Leuven</p>
-      <div class="hero-icons">
-        <span>🥖 <span data-lang="icon_fresh">Vers gebakken</span></span>
-        <span>☕ <span data-lang="icon_coffee">Koffie & soep</span></span>
-        <span>📱 <span data-lang="icon_skip">Skip de wachtrij</span></span>
-      </div>
-      <div class="hero-btns">
-        <a href="https://painlouvain.pickandgo.be" target="_blank" rel="noopener" class="btn-green" data-lang="hero_cta1">Bestel online</a>
-        <a href="#sandwiches" class="btn-gold-outline" data-lang="hero_cta2">Bekijk menu</a>
-      </div>
-      <div class="hero-open">
-        <div class="pulse-dot"></div>
-        <span data-lang="hero_open">Open ma–vr · 9:00 – 17:00</span>
-      </div>
+  <div class="hero-content">
+    <div class="hero-badge">🥖 #3 Sandwich Spot in Leuven · Since 2008</div>
+    <h1 class="hero-title">
+      <span class="t-pain">Pain</span>
+      <span class="t-louvain">Louvain</span>
+    </h1>
+    <p class="hero-sub" data-lang="hero_sub">Originele broodjes, vers gebakken brood, midden in het studentenleven van Leuven</p>
+    <div class="hero-icons">
+      <span>🥖 <span data-lang="icon_fresh">Vers gebakken</span></span>
+      <span>☕ <span data-lang="icon_coffee">Koffie & soep</span></span>
+      <span>📱 <span data-lang="icon_skip">Skip de wachtrij</span></span>
+    </div>
+    <div class="hero-btns">
+      <a href="https://painlouvain.pickandgo.be" target="_blank" rel="noopener" class="btn-green" data-lang="hero_cta1">Bestel online</a>
+      <a href="#sandwiches" class="btn-gold-outline" data-lang="hero_cta2">Bekijk menu</a>
+    </div>
+    <div class="hero-open">
+      <div class="pulse-dot"></div>
+      <span data-lang="hero_open">Open ma–vr · 9:00 – 17:00</span>
     </div>
   </div>
-  <div class="hero-right"></div>
 </section>
 
 <!-- ━━━ BADGES STRIP ━━━ -->
